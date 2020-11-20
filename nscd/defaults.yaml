@@ -1,0 +1,32 @@
+---
+nscd:
+  pkg:
+    name: nscd
+    configfile: /etc/nscd.conf
+    service: nscd
+  config:
+    base:
+      - server-user: nscd
+      - debug-level: 0
+      - paranoia: false
+#      - logfile: /var/log/nscd.log
+#      - threads: 4
+#      - max-threads: 32
+#      - stat-user: somebody
+#      - reload-count: 5
+    defaults:
+      - enable-cache: true
+      - positive-time-to-live: 600
+      - negative-time-to-live: 20
+      - suggested-size: 211
+      - check-files: true
+      - persistent: true
+      - shared: true
+      - max-db-size: 33554432
+      - auto-propagate: true
+    service_groups:
+      - passwd
+      - group
+      - hosts
+      - services
+      - netgroup

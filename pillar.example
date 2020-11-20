@@ -1,0 +1,9 @@
+nscd:
+  config:
+    service_groups:
+      - hosts
+    hosts:
+      - enable-cache: true
+      - positive-time-to-live: 1800
+      - negative-time-to-live: 60
+      - suggested-size: 512
